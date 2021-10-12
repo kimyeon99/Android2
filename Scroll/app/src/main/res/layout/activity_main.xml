@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="서랍 밖"/>
+
+    <SlidingDrawer
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:content="@+id/content"
+        android:handle="@+id/handle">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/handle"
+            android:text="서랍 손잡이"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:id="@+id/content"
+            android:gravity="center"
+            android:background="#00FF00"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="서랍 안"
+                android:gravity="center"
+                android:textSize="50dp"
+            />
+
+            <SlidingDrawer
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:content="@+id/content2"
+                android:handle="@+id/handle2">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="hello"
+
+                    android:id="@+id/handle2"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:id="@+id/content2"
+                    android:gravity="center"
+                    android:background="@color/purple_500">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:textSize="50dp"
+                        android:text="hello world"/>
+
+
+                </LinearLayout>
+
+                </SlidingDrawer>
+
+        </LinearLayout>
+
+
+
+
+    </SlidingDrawer>
+</LinearLayout>
