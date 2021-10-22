@@ -1,4 +1,4 @@
-package com.yeungjin.menutest;
+package com.yeungjin.menutestonlyjava;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,9 +10,12 @@ import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.SubMenu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+
+import com.yeungjin.menutestonlyjava.R;
 
 public class MainActivity extends AppCompatActivity {
     Button button1,button2;
@@ -33,37 +36,38 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+
         super.onCreateContextMenu(menu, v, menuInfo);
 
-        MenuInflater mInflater = getMenuInflater();
+
         if(v == button1){
-            menu.setHeaderTitle("배경색 변경");
-            mInflater.inflate(R.menu.menu, menu);
+            menu.add(0, 1, 0, "빨강");
+            menu.add(0, 2, 0, "초록");
+            menu.add(0, 3, 0, "파랑");
         }
         if(v == button2){
-
-            mInflater.inflate(R.menu.menu2, menu);
+            menu.add(0,4,0, "45도회전");
+            menu.add(0,5,0, "2배");
         }
     }
 
     @Override
     public boolean onContextItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
-            case R.id.itemRed:
+            case 1:
                 baselayout.setBackgroundColor(Color.RED);
                 return true;
-            case R.id.itemBlue:
+            case 2:
                 baselayout.setBackgroundColor(Color.BLUE);
                 return true;
-            case R.id.itemGreen:
+            case 3:
                 baselayout.setBackgroundColor(Color.GREEN);
                 return true;
-            case R.id.subRotate:
+            case 4:
                 button2.setRotation(45);
                 return true;
-            case R.id.subSize:
-                button2.setScaleX(500);
-                button2.setScaleY(200);
+            case 5:
+                button2.setScaleX(2);
                 return true;
 
         }
