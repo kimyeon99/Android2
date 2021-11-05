@@ -11,6 +11,12 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     Button btn, btn2, btn3;
+        class Click implements View.OnClickListener{
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(),"click!", Toast.LENGTH_SHORT).show();
+            }
+        }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -22,6 +28,9 @@ public class MainActivity extends AppCompatActivity {
         btn2 = findViewById(R.id.button2);
         btn3 = findViewById(R.id.button3);
 
+        Click click = new Click();
+        btn3.setOnClickListener(click);
+
         // 익명 클래스 방법
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -30,17 +39,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btn3.setOnClickListener();
     }
 
     //onClicked 방법
     public void clicked(View view){ // View view 주의할 것.
         Toast.makeText(getApplicationContext(),"onClicked!",Toast.LENGTH_LONG).show();
     }
+
+
+
 }
 
-class Btn{
-    class click implements View.OnClickListener{
-        
-    }
-}

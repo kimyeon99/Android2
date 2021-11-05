@@ -73,4 +73,12 @@ public class MainActivity extends AppCompatActivity {
         }
         return false;
     }
+
+    public boolean onCreateOptionsMenu(Menu menu){
+        super.onCreateOptionsMenu(menu);
+
+        menu.add(0,1,0, "배경색(빨강");
+        menu.add(0,1,0, "배경색(초록");
+        menu.add(0,1,0, "배경색(파랑");
+    }
 }
