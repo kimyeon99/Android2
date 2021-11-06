@@ -14,8 +14,8 @@ import android.widget.Toast;
 import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
-    TextView tvName, tvEmail;
-    EditText dlgEditName, dlgEditEmail;
+
+    EditText dlgEditName, dlgEditEmail, edit1, edit2;
     Button button1;
     TextView toastText;
     View dialogView, toastView;
@@ -26,8 +26,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         setTitle("사용자 정보 입력");
 
-        tvName = (TextView) findViewById(R.id.tvName);
-        tvEmail = (TextView) findViewById(R.id.tvEmail);
+        edit1 = (EditText) findViewById(R.id.edit1);
+        edit2 = (EditText) findViewById(R.id.edit2);
         button1 = (Button) findViewById(R.id.button1);
 
         button1.setOnClickListener(new View.OnClickListener() {
@@ -38,16 +38,22 @@ public class MainActivity extends AppCompatActivity {
                 dlg.setTitle("사용자 정보 입력");
                 dlg.setIcon(R.drawable.ic_menu_allfriends);
                 dlg.setView(dialogView);
+
+                dlgEditName = (EditText) dialogView.findViewById(R.id.dlgEdit1);
+                dlgEditEmail  = (EditText) dialogView.findViewById(R.id.dlgEdit2);
+
+                //dialog 안의 edit을 설정한다.
+                dlgEditName.setText(edit1.getText().toString());
+                dlgEditEmail.setText(edit2.getText().toString());
+
                 dlg.setPositiveButton("확인", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        dlgEditName = (EditText) dialogView.findViewById(R.id.dlgEdit1);
-                        dlgEditEmail  = (EditText) dialogView.findViewById(R.id.dlgEdit2);
-
-                        tvName.setText(dlgEditName.getText().toString());
-                        tvEmail.setText(dlgEditEmail.getText().toString());
+                        edit1.setText(dlgEditName.getText().toString());
+                        edit2.setText(dlgEditEmail.getText().toString());
                     }
                 });
+
                 dlg.setNegativeButton("취소", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
